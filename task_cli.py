@@ -8,7 +8,8 @@ subparsers = parser.add_subparsers(dest="command", required=True)
 # args = add, delete, update, mark-in-progress, mark-done, list
 
 add_parser = subparsers.add_parser("add", help="Add a item to the task list")
-add_parser.add_argument("name", type=str, choices=["task_name"], help="the name of the task")
+add_parser.add_argument("task_name", type=str, help="The name of the task")
+
 
 delete_parser = subparsers.add_parser("delete", help="delete a item to the task list")
 
