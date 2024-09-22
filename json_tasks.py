@@ -62,6 +62,35 @@ def delete_task(task_id: int) -> None:
     print(f"Task with ID {task_id} deleted successfully.")
 
 
+def display_tasks() -> None:
+    tasks = load_tasks()
+    if not tasks:
+        print("No tasks found.")
+        return
+    print("\nTask List:")
+    print("===========")
+    for task in tasks:
+        print(f"ID: {task['id']}")
+        print(f"Task Name: {task['task_name']}")
+        print(f"Status: {task['status']}")
+        print(f"Created At: {task['created_at']}")
+        print(f"Updated At: {task['updated_at']}")
+        print("-" * 30)
+    print("\n")
+
+
+def mark_in_progress(task_id: int) -> None:
+    tasks = load_tasks()
+    for task in tasks:
+        if task["id"] == task_id:
+            task["status"] = "in-progress"
+            task["updated_at"] = datetime.now().isoformat()
+            save_tasks(tasks)
+            print(f"Task {task_id} marked as in-progress.")
+            return
+    print(f"Task with ID {task_id} not found.")
+
+
 if __name__ == "__main__":
     add_task("Test Task")
     # Test the load_tasks function

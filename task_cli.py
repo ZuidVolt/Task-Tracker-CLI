@@ -12,12 +12,19 @@ add_parser.add_argument("task_name", type=str, help="The name of the task")
 
 
 delete_parser = subparsers.add_parser("delete", help="delete a item to the task list")
+delete_parser.add_argument("task_id", type=int, help="ID of the task to delete")
 
 update_parser = subparsers.add_parser("update", help="update a item to the task list")
+update_parser.add_argument("task_id", type=int, help="ID of the task to Update")
 
 mark_in_progress_parser = subparsers.add_parser("mark-in-progress", help="mark-in-progress a item to the task list")
+mark_in_progress_parser.add_argument("task_id", type=int, help="ID of the task to mark as in progress")
 
 mark_done_parser = subparsers.add_parser("mark-done", help="mark-done a item to the task list")
+mark_done_parser.add_argument("task_id", type=int, help="ID of the task to mark as done")
+
+
+list_parser = subparsers.add_parser("list", help="List all tasks")
 
 args = parser.parse_args()
 
