@@ -23,17 +23,20 @@ args = parser.parse_args()
 
 
 def main():
-    if (
-        args.command == "add"
-        or args.command == "delete"
-        or args.command == "update"
-        or args.command == "mark-in-progress"
-        or args.command == "mark-done"
-        or args.command == "list"
-    ):
+    if args.command == "add":
+        pass
+    if args.command == "delete":
+        pass
+    if args.command == "update":
+        pass
+    if args.command == "mark-in-progress":
+        pass
+    if args.command == "mark-done":
+        pass
+    if args.command == "list":
         pass
     else:
-        print("Invalid command")
+        raise NotImplementedError(f"Command {args.command} not implemented")
 
 
 if __name__ == "__main__":
