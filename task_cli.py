@@ -20,3 +20,21 @@ mark_in_progress_parser = subparsers.add_parser("mark-in-progress", help="mark-i
 mark_done_parser = subparsers.add_parser("mark-done", help="mark-done a item to the task list")
 
 args = parser.parse_args()
+
+
+def main():
+    if (
+        args.command == "add"
+        or args.command == "delete"
+        or args.command == "update"
+        or args.command == "mark-in-progress"
+        or args.command == "mark-done"
+        or args.command == "list"
+    ):
+        pass
+    else:
+        print("Invalid command")
+
+
+if __name__ == "__main__":
+    main()
