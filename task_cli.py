@@ -1,6 +1,16 @@
 # task_cli.py
 import argparse
+import logging
 
+# Configure logging to be more flexible and genre-agnostic
+logging.basicConfig(
+    level=logging.INFO,  # Set the default log level to INFO
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",  # Include timestamp, log level, and logger name
+    datefmt="%Y-%m-%d %H:%M:%S",  # Use a standard date format
+)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)  # Set the logger level to DEBUG for this module
 
 parser = argparse.ArgumentParser(description="Manage tasks")
 subparsers = parser.add_subparsers(dest="command", required=True)
